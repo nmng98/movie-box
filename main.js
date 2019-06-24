@@ -1,4 +1,4 @@
-    
+     
     $(document).ready(() => {
         $('#searchForm').on('submit', (e) => {
             var searchText = $('#searchText').val();
