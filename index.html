@@ -1,0 +1,118 @@
+{{extend 'layout.html'}}
+<link rel="stylesheet" type="text/css" href="{{ = URL('static/css', 'myapp.css') }}" />
+<link href ="{{ = URL('static/css', 'stupid.css') }}" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" type="text/css" href="{{ = URL('static/css', 'font-awesome.css') }}" />
+
+{{block head}}
+<script src="{{=URL('static', 'js/vue.js')}}"></script>
+<script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+<script>
+	var set_like_url = "{{=URL('api', 'set_like', user_signature=True, hash_vars=False)}}";
+	var get_review_list_url = "{{=URL('api', 'get_review_list')}}";
+  var get_likers_url = "{{=URL('api', 'get_likers')}}";
+  var get_most_liked_url = "{{=URL('api', 'get_most_liked')}}";
+  var get_my_liked_url = "{{=URL('api', 'get_my_liked')}}";
+	var is_logged_in = {{='false' if auth.user is None else 'true'}};
+  var get_my_review_url = "{{=URL('api', 'get_my_review')}}";
+</script>
+
+{{end}}
+
+<html>
+<body>
+<!--jumbotron -->
+<div class="jumbotron">
+  <div class="glass padded">
+    <br>
+    <div class="movie-box">WELCOME TO MOVIEBOX</div>
+    <div class="movie-box-description">
+    A PLACE FOR CINEPHILES TO CRITQUE THEIR FAVORITE MOVIES AND SHOWS </div>
+  </div>
+</div>
+
+<div id="vue-div" class="display:none">
+  
+  <div class="container padded center">
+  <div class="top-left quarter">
+    <div class="new-review-title">NEW REVIEWS
+        <i class="fa fa-film"></i>
+        
+    </div>
+    <div class="new-hr"><hr></div>
+    <div class="main_content_left">
+    <div v-if="review_list.length === 0">There are no reviews.</div>
+    <!-- We display the reviews. -->
+    
+    <div id="review_list">
+      <div class="review_div" v-for="review in review_list">
+
+
+        <div class="likers">
+          <span class="show_likers" 
+          v-on:mouseover="show_likers(review._idx)"
+          v-on:mouseout="hide_likers(review._idx)">
+            <span v-if="is_logged_in" class="toggle_like"
+            v-on:mouseover="like_mouseover(review._idx)"
+            v-on:mouseout="like_mouseout(review._idx)"
+            v-on:click="like_click(review._idx)">
+            <p class="heart">
+              <i v-if="review._smile" class="fa fa-heart home fa-4x fa-beat" v-bind:class="{changed: review._smile === !review.like}"></i>
+              </p>
+              <i v-if="!review._smile" class="fa fa-heart-o home" v-bind:class="{changed: review._smile === !review.like}"></i>
+            </span>
+          </span>
+        </div>
+
+        
+        <div class="review_title"><b>${review.title}</b></div>
+        <div class="review_genre"> ${review.genre}</div>
+        <div class="review_rating">${review.rating}</div>
+        <br>
+        <div class="glass padded">
+          <div class="review_body">${review.body}</div>
+        </div>
+        <br>
+        <div class="review_user">- <b>${review.username}</b></div>
+      </div> <!-- end of review div -->
+
+    </div>
+    </div>     
+    </div> <!-- quarter -->
+    </div> <!--container-->
+    <div class="container padded center">
+    <div class="top-right quarter">
+      <div class="most-liked-title">CRITIC'S AWARD
+        <i class="fa fa-star fa-spin"></i>
+        
+      </div>
+      <div class="new-hr"><hr></div>
+    <!-- most liked -->
+    <span v-if="is_logged_in">
+    <div class="main_content_right">
+      <div id="most_liked">
+        <div class="most_liked_div" v-for="liked in most_liked">
+          <div class="review_title"><b>${liked.title}</b></div>
+          <div class="review_genre">${liked.genre}</div>
+          <div class="review_rating">${liked.rating}</div>
+          <br>
+          <div class="glass padded">
+          <div class="review_body">${liked.body}</div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </span>
+  <span v-if="!is_logged_in"> &nbsp &nbsp Please log in!</span>
+  </div> <!--half-->
+</div> <!-- container -->
+</div> <!-- vue -->
+</body>
+</html>
+
+<script src="{{=URL('static', 'js/index.js')}}"></script>
+<!--<script src="{{=URL('static', 'js/next.js')}}"></script>-->
