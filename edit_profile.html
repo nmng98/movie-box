@@ -1,0 +1,20 @@
+{{extend 'layout.html'}}
+<link rel="stylesheet" type="text/css" href="{{ = URL('static/css', 'myapp.css') }}" />
+<link href ="{{ = URL('static/css', 'stupid.css') }}" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" type="text/css" href="{{ = URL('static/css', 'font-awesome.css') }}" />
+<link rel="stylesheet" type="text/css" href="{{ = URL('static/css', 'web2py-bootstrap.css') }}" />
+<link rel="stylesheet" type="text/css" href="{{ = URL('static/css', 'web2py.css') }}" />
+
+
+
+{{block head}}
+{{end}}
+<html>
+	<div class="edit_profile_title">Edit Profile
+		<i class="fa fa-edit"></i>
+		</div>
+		<br>
+		<br>
+		{{=form}}
+		<br>
+</html>
