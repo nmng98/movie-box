@@ -1,0 +1,54 @@
+{{extend 'layout.html'}}
+<link rel="stylesheet" type="text/css" href="{{ = URL('static/css', 'myapp.css') }}" />
+
+<link href ="{{ = URL('static/css', 'stupid.css') }}" rel="stylesheet" type="text/css"/>
+
+{{block head}}
+<script src="{{=URL('static', 'js/vue.js')}}"></script>
+<script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+	var get_my_liked_url = "{{=URL('api', 'get_my_liked')}}";
+  var get_review_list_url = "{{=URL('api', 'get_review_list')}}";
+  var get_most_liked_url = "{{=URL('api', 'get_most_liked')}}";
+  var get_my_review_url = "{{=URL('api', 'get_my_review')}}";
+	var is_logged_in = {{='false' if auth.user is None else 'true'}};
+</script>
+
+{{end}}
+<div class="main content">
+  <!-- vue div -->
+  <div id="vue-div" class="display:none"> 
+		
+      <p class="heart">
+        <div class="my-liked-title">Your Liked Reviews 
+          <i class="fa fa-heart fa-4x fa-beat"></i>
+        </div>
+      </p>
+    
+
+    <!-- display my liked reviews -->
+		<div id="my_liked">
+        <div class="my_liked_div" v-for="liked in my_liked">
+          <div class="my_title"><b>${liked.title}</b></div>
+          <div class="my_genre">${liked.genre}</div>
+          <div class="my_rating">${liked.rating}</div>
+          <br>
+          <div class="glass padded my_liked">
+          <div class="my_body">${liked.body}</div>
+        </div>
+        </div>
+      </div>
+    </div>
+    <div class="container center padded">
+          <div class="quarter">
+        <a href="index.html" class="this btn btn-default">Back To Home
+          <i class="fa fa-home"></i>
+          </a>
+          </div>
+        </div>
+</div>
+<script src="{{=URL('static', 'js/index.js')}}"></script>
