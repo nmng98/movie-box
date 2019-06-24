@@ -1,3 +1,4 @@
+
 @auth.requires_signature()
 def add_review():
   review_id = db.review.insert(
