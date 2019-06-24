@@ -1,0 +1,50 @@
+{{extend 'layout.html'}}
+<link rel="stylesheet" type="text/css" href="{{ = URL('static/css', 'myapp.css') }}" />
+
+<link href ="{{ = URL('static/css', 'stupid.css') }}" rel="stylesheet" type="text/css"/>
+
+{{block head}}
+<script src="{{=URL('static', 'js/vue.js')}}"></script>
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+<script>
+	var get_my_review_url = "{{=URL('api', 'get_my_review')}}";
+	var set_like_url = "{{=URL('api', 'set_like', user_signature=True, hash_vars=False)}}";
+  var get_review_list_url = "{{=URL('api', 'get_review_list')}}";
+  var get_likers_url = "{{=URL('api', 'get_likers')}}";
+  var get_most_liked_url = "{{=URL('api', 'get_most_liked')}}";
+  var get_my_liked_url = "{{=URL('api', 'get_my_liked')}}";
+  var is_logged_in = {{='false' if auth.user is None else 'true'}};
+</script>
+{{end}}
+<div class="main_content">
+    <div id="vue-div" class="display:none">
+      <div class="my-review-title">Your Reviews
+          
+      </div>
+      <br>
+      <div v-if="my_review.length === 0">You haven't written any reviews yet!</div>
+      <!-- We display the reviews. -->
+      	<div id="my_review">
+        	<div class="my_review_div" v-for="review in my_review">
+          		<div class="my_review_title"><b>${review.title}</b></div>
+          		<div class="my_review_genre">${review.genre}</div>
+          		<div class="my_review_rating">${review.rating}</div>
+              <br>
+          		<div class="glass padded my_review">
+                <div class="review_body">${review.body}</div>
+              </div>
+       		</div>
+       	</div>
+    </div>
+    <br>
+    <div class="container padded center">
+      <div class="quarter">
+    <a href="add_review.html" class="btn btn-default"><i class="fa fa-plus"></i> &nbsp; Add Review 
+        </a>
+
+      </div>
+    </div>
+</div>
+<script src="{{=URL('static', 'js/index.js')}}"></script>
