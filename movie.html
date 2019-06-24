@@ -1,0 +1,88 @@
+{{extend 'layout.html'}}
+<link rel="stylesheet" type="text/css" href="{{ = URL('static/css', 'myapp.css') }}" />
+<link href ="{{ = URL('static/css', 'stupid.css') }}" rel="stylesheet" type="text/css"/>
+
+{{block head}}
+<script>
+    var add_review_url = "{{=URL('api', 'add_review', user_signature=True)}}";
+    var is_logged_in = {{='false' if auth.user is None else 'true'}};
+    var get_review_list_url = "{{=URL('api', 'get_review_list')}}";
+    var get_most_liked_url = "{{=URL('api', 'get_most_liked')}}";
+    var get_my_liked_url = "{{=URL('api', 'get_my_liked')}}";
+
+
+</script>
+<script src="{{ = URL('static/js', 'index.js') }}"></script>
+<script src="{{ = URL('static/js', 'main.js') }}"></script>
+
+{{end}}
+
+<div class="main_content">
+	<div id="vue-div" class="display:none">
+    
+    <div class="container">
+      <div id="movie" class="well"></div>
+      </div>
+        <!-- <div class="review_movie_div" v-for="movie in review_movie">
+          <img :src ="movie.Poster">
+              <h5>${movie.Title}</h5>
+        </div>-->
+        <br>
+
+        <div id="add_review">
+          <div class="container form_row">
+            <div class="review quarter"><b>Your Review</b>
+            <i class="fa fa-pencil"></i>
+            </div>
+            <div class="your_review_hr"><hr></div>
+            <br>
+            <div class="label quarter">
+            <b>Title: </b>
+          </div>
+          <div class="form threequarters">
+            <input v-model="form_title" placeholder="Enter the movie title"/>
+          </div>
+        </div>
+        <div class="container form_row">
+          <div class="label quarter">
+            <b> Genre: </b>
+          </div>
+          <div class="form threequarters">
+            <textarea v-model="form_genre" placeholder="Enter genre"></textarea>
+          </div>
+        </div>
+        <div class="container form_row">
+          <div class="label quarter">
+           <b> Rating:</b>
+          </div>
+          <div class="form threequarters">
+            <textarea v-model="form_rating" placeholder="Enter rating"></textarea>
+          </div>
+        </div>
+        <div class="container form_row">
+          <div class="label quarter">
+            <b> Review: </b>
+          </div>
+          <div class="form threequarters">
+            <textarea v-model="form_body" placeholder="Enter review"></textarea>
+          </div>
+        </div>
+        <br>
+        <div class="container form_row"><div class="quarter"></div>
+          <div class="threequarters">
+            <div class="submit">
+              <button id="add-review" v-on:click="add_review">Submit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+ 
+  </div>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="{{=URL('static', 'js/vue.js')}}"></script>
+
+  <script>getMovie()</script>
+
+  
+    
+</div>
