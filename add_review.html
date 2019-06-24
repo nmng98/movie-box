@@ -1,0 +1,48 @@
+{{extend 'layout.html'}}
+<link rel="stylesheet" type="text/css" href="{{ = URL('static/css', 'myapp.css') }}" />
+<link href ="{{ = URL('static/css', 'stupid.css') }}" rel="stylesheet" type="text/css"/>
+
+{{block head}}
+<script src="{{=URL('static', 'js/vue.js')}}"></script>
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+    var add_review_url = "{{=URL('api', 'add_review', user_signature=True)}}";
+    var get_review_list_url = "{{=URL('api', 'get_review_list')}}";
+    var get_most_liked_url = "{{=URL('api', 'get_most_liked')}}";
+    var get_my_liked_url = "{{=URL('api', 'get_my_liked')}}";
+    var is_logged_in = {{='false' if auth.user is None else 'true'}};
+</script>
+{{end}}
+
+<div class="main_content">
+
+
+    	
+    		<div class="jumbotron add">
+	    		<h3 class="search-center">Search For Any Movie</h3>
+	    		<form id="searchForm">
+	    			<input type="text" class="form-control" id="searchText" placeholder="Search Movies (spelling sensitive)...">
+	    		</form>
+        </div>
+
+    	<!-- <div class="movie_div" v-for="movie in movie_list">
+          		<img :src ="movie.Poster">
+          		<h5>${movie.Title}</h5>
+          		<a v-on:click="getMovie(movie.imdbID)" class="btn btn-primary" href="movie.html">Review</a>
+      </div>-->
+      
+        <div id="movies" class="row"></div>
+        <br>
+        <br>
+        <div class="container center padded">
+          <div class="quarter">
+        <a href="index.html" class="this btn btn-default">Back To Home
+          <i class="fa fa-home"></i>
+          </a>
+          </div>
+        </div>
+      
+  
+</div>
+<script src="{{=URL('static', 'js/main.js')}}"></script>
