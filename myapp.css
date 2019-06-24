@@ -1,0 +1,365 @@
+
+.search-center{
+  font-size: 50px;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  color: white;
+  font-weight: bold;
+  text-shadow: 4px 4px black;
+  text-align-last: center;
+
+}
+
+.jumbotron.add {
+  background-image:url('');
+
+}
+
+/* index */
+/*       */
+.new-review-title {
+  font-size: 35px;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  padding-left:68px;
+  padding-right:50px;
+
+}
+
+.new-hr {
+  width:80%;
+  color:black;
+  padding-left:15px;
+}
+
+.most-liked-title {
+  font-size: 35px;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  padding-left:55px;
+  margin-top:-22px;
+  padding-right:30px;
+}
+
+.fa-star {
+  color: gold;
+}
+
+div.main_content_left div.review_div {
+  margin: 10px;
+  border: 2px black solid;
+  background-color: #F7F5F4;
+  padding: 40px 20px;
+  width: 80%;
+  color:black;
+  border-radius: 4px;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+
+
+}
+
+.top-left.quarter {
+  float:left;
+  width:50%;
+
+}
+
+.top-right.quarter {
+  float:right;
+  width: 50%;
+}
+
+
+.fa-heart.home {
+  color: red;
+  font-size: 20px;
+  float:right;
+  position:relative;
+
+}
+.fa-heart-o.home {
+  font-size: 20px;
+  float:right;
+}
+
+div.review_div div.review_user {
+  font-size: 10px;
+  float:right;
+
+}
+
+div.review_div div.review_title {
+  font-size: 30px;
+}
+div.review_div div.review_genre {
+  font-style: italic;
+}
+
+div.main_content_right div.most_liked_div {
+  margin: 10px;
+  border: 2px black solid;
+  background-color: #F7F5F4;
+  padding: 40px 20px;
+  width: 80%;
+  color:black;
+  border-radius: 4px;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+
+
+}
+
+div.most_liked_div div.review_title {
+  font-size: 30px;
+}
+
+div.most_liked_div div.review_genre {
+  font-style: italic;
+}
+
+.jumbotron{
+  height: 100%;
+  width: 100%;
+  background-image:url('https://archive.org/download/AAEAAQAAAAAAAAgZAAAAJGYyNDhjMDFkLTFmODktNGU0Zi1hOTRmLWQ3YjkwN2YxZWEwMQ/AAEAAQAAAAAAAAgZAAAAJGYyNDhjMDFkLTFmODktNGU0Zi1hOTRmLWQ3YjkwN2YxZWEwMQ.jpg');
+
+}
+
+.movie-box {
+  text-align-last: center;
+  font-size: 50px;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  color: white;
+  font-weight: bold;
+  text-shadow: 4px 4px black;
+}
+
+.glass.padded {
+  height:100%;
+  width: 100%;
+  border-radius: 4px;
+
+}
+
+.movie-box-description {
+  text-align-last: center;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 20px;
+  font-style: italic;
+  color: white;
+  text-shadow: 2px 2px black;
+
+
+
+}
+
+
+.html, body {
+  background-color: #FFFFFE;
+}
+
+/* my_liked_ review */
+/*       */
+
+ div.my_liked_div {
+  margin: 0px;
+  margin-bottom: 10px;
+  border: 2px black solid;
+  background-color: #F7F5F4;
+  padding: 40px 20px;
+  width: 100%;
+  color:black;
+  border-radius: 4px;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  
+}
+
+.my-liked-title {
+  font-size: 40px;
+  text-align: center;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+ 
+}
+
+div.my_liked_div div.my_title {
+  font-size: 30px;
+}
+
+div.my_liked_div div.my_genre {
+  font-style: italic;
+}
+
+.glass.padded.my_liked {
+  width: 70%;
+}
+
+
+.fa-heart {
+  color:red;
+  font-size: 40px;
+
+}
+.fa-beat {
+  animation:fa-beat 3s ease infinite;
+}
+@keyframes fa-beat {
+  0% {
+    transform:scale(1);
+  }
+  5% {
+    transform:scale(1.25);
+  }
+  20% {
+    transform:scale(1);
+  }
+  30% {
+    transform:scale(1);
+  }
+  35% {
+    transform:scale(1.25);
+  }
+  50% {
+    transform:scale(1);
+  }
+  55% {
+    transform:scale(1.25);
+  }
+  70% {
+    transform:scale(1);
+  }
+}
+
+
+div.main_content i.changed {
+  color: #777777;
+}
+
+
+/* main.js */
+/*       */
+#movies img, #movie img {
+  width: 75%;
+
+}
+
+@media(min-width: 960px) {
+  #movies .col-md-3 .well {
+    height: 390px;
+  }
+  #movies .col-md-3 img {
+    height: 290px;
+  }
+}
+.movie_title {
+  font-size: 15px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.btn.btn-primary {
+  background-color: black;
+  
+}
+
+/* movie.html */
+/* */
+
+.colorful {
+  color: #bb8833;
+}
+
+/
+div.main_content {
+  padding: 16px;
+}
+
+.btn.btn-default{
+  background-color: grey;
+}
+
+/*  add_review */
+/* */
+div.main_content div.form_row {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.review.quarter {
+  font-size: 30px;
+}
+
+.your_review_hr {
+  width: 90%;
+}
+.this.btn.btn-default {
+  text-align:center;
+
+}
+
+/* view_profile */
+/* */
+.view_profile_title {
+  font-size: 40px;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  text-align: center;
+}
+
+.view_profile {
+  margin: auto;
+  border: 2px black solid;
+  background-color: #F7F5F4;
+  padding: 20px 30px;
+  width: 50%;
+  color:black;
+  border-radius: 4px;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+
+
+}
+
+.she.btn-default {
+  text-align:center;
+
+}
+
+/* edit profile */
+/* */
+.edit_profile_title {
+  font-size: 40px;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  text-align: center;
+  
+}
+
+/* my reviews */
+div.my_review_div {
+  margin: 0px;
+  margin-bottom: 10px;
+  border: 2px black solid;
+  background-color: #F7F5F4;
+  padding: 40px 20px;
+  width: 100%;
+  color:black;
+  border-radius: 4px;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  
+
+
+}
+
+div.my_review_div div.my_review_title {
+  font-size: 30px;
+}
+
+div.my_review_div div.my_review_genre {
+  font-style: italic;
+}
+
+.glass.padded.my_review {
+  width: 70%;
+}
+
+.my-review-title {
+  font-size: 50px;
+  text-align: center;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+.add.btn.btn-default {
+  margin:auto;
+}
