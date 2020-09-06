@@ -1,6 +1,6 @@
 # Movie-Box
 ### Description
-MovieBox is a web application for cinephiles with similar capabilities to IMDB.
+MovieBox is a web application with similar capabilities to IMDB.
 
 ### Technologies Used
 * Python
